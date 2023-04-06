@@ -1,0 +1,212 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+}
+
+:root {
+    --card_width: 15.625rem;
+    /*~250px Anchura de la tarjeta/pin */
+    --row_increment: 0.625rem;
+    /*~10px Al estar usando CSS grid, cada tarjeta/pin estará hecha con incrementos de 10px para las filas */
+    --card_border_radius: 1rem;
+    /*~16px  Redondeo en los bordes de las tarjetas/pines*/
+    --card_small: 26;
+    /* Factor de crecimiento para tarjetas pequeñas: 26*0.625rem */
+    --card_medium: 33;
+    /* Factor de crecimiento para tarjetas medianas: 26*0.625rem */
+    --card_large: 45;
+    /* Factor de crecimiento para tarjetas grandes: 26*0.625rem */
+}
+
+main {
+    height: 100vh;
+    width: 100%;
+}
+
+nav {
+    height: 5rem;
+    display: flex;
+}
+
+.navbar_pinterest_buttons_container {
+    width: 30%;
+    height: 100%;
+    padding-inline-start: 0.6rem;
+    padding-block-start: 0.6rem;
+    display: ruby;
+}
+
+.navbar_user_buttons_container>img {
+    padding-block-start: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+
+.inicio_button {
+    padding-inline-start: 0.6rem;
+    height: 3rem;
+    width: fit-content;
+    background-color: black;
+    border-radius: 1.5rem;
+    color: white;
+    text-align: center;
+    font-size: medium;
+    padding-block-start: 0.7rem;
+}
+
+.hoy_button {
+    padding-inline-start: 0.6rem;
+    height: 3rem;
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    font-size: medium;
+    padding-block-start: 0.7rem;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.crear_button {
+    padding-inline-start: 0.6rem;
+    height: 3rem;
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    font-size: medium;
+    padding-block-start: 0.7rem;
+}
+
+.navbar_user_buttons_container {
+    width: 30%;
+    height: 100%;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.navbar_input_search_container {
+    flex-grow: 4;
+    min-width: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 70%;
+}
+
+.navbar_input_search {
+    padding-inline-start: 0.6rem;
+    height: 3rem;
+    width: 100%;
+    background-color: #E9E9E9;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.navbar_input_search>img {
+    height: 2rem;
+}
+
+.navbar_input_search>input {
+    height: 2rem;
+    flex-grow: 3;
+    border-radius: 4rem;
+    border-color: #E9E9E9;
+    background: transparent;
+}
+
+.pin_container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--card_width));
+    grid-auto-rows: var(--row_increment);
+    justify-content: center;
+}
+
+.card {
+    position: relative;
+    padding: 0;
+    margin: 15px 10px;
+    border-radius: var(--card_border_radius);
+}
+
+.guardar_button {
+    height: 3rem;
+    width: 6rem;
+    background-color: red;
+    border-radius: 1.5rem;
+    color: white;
+    text-align: center;
+    font-size: small;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    position: relative;
+    top: 5%;
+    left: 55%;
+}
+
+.bottom_buttons_on_hover {
+    position: relative;
+    top: 70%;
+    left: 70%;
+}
+
+.card_content {
+    width: 100%;
+    height: 100%;
+    padding-top: 0.5rem;
+    position: absolute;
+    text-align: center;
+    border-radius: var(--card_border_radius);
+}
+
+.card_buttons_on_hover {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.493);
+    color: white;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: var(--card_border_radius);
+}
+
+.card_buttons_on_hover:hover {
+    opacity: 1;
+}
+
+.card_small {
+    grid-row-end: span var(--card_small);
+}
+
+.card_content>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--card_border_radius);
+}
+
+.card_medium {
+    grid-row-end: span var(--card_medium);
+}
+
+.card_large {
+    grid-row-end: span var(--card_large);
+}
+
+.floating_button {
+    position: fixed;
+    left: 90%;
+    top: 90%;
+}
